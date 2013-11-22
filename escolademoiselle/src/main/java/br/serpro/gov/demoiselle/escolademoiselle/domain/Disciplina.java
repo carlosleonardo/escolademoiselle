@@ -6,6 +6,7 @@ import java.lang.String;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * Entity implementation class for Entity: Disciplina
@@ -18,8 +19,13 @@ public class Disciplina implements Serializable {
 	@GeneratedValue
 	private Long id;
 	
+	@Column
+	@NotNull
 	private String Nome;
+	
+	@Column
 	private String Descricao;
+	
 	private static final long serialVersionUID = 1L;
 	
 	@OneToMany

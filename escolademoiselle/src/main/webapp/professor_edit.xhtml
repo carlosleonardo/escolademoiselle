@@ -39,8 +39,11 @@
 					   <p:message for="dataContratacao" />
 								
 					<h:outputLabel value="#{messages['professor.label.disciplina']}: " for="disciplina" styleClass="text-input" />
-					<h:inputText id="disciplina" value="#{professorEditMB.bean.disciplina}"
-						title="#{messages['professor.alt.disciplina']}" />
+						<p:selectOneMenu value="#{disciplinaEditMB.bean.id}" id="disciplina"
+							>
+							<f:selectItem itemLabel="Selecione uma disciplina" itemValue=""/>
+							<f:selectItems value="#{disciplinaListMB.resultList}" var="discip" itemLabel="#{discip.nome}" itemValue="#{discip.id}"/>
+						</p:selectOneMenu>
 					<p:message for="disciplina" />
 					
 					<h:outputLabel value="#{messages['professor.label.cPF']}: " for="cPF" styleClass="text-input" />

@@ -44,8 +44,7 @@ public class ProfessorEditMB extends AbstractEditPageBean<Professor, Long> {
 
 	@Override
 	protected Professor handleLoad(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return professorBC.load(id);
 	}
 
 }

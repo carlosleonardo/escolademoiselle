@@ -44,8 +44,7 @@ public class DisciplinaEditMB extends AbstractEditPageBean<Disciplina, Long> {
 
 	@Override
 	protected Disciplina handleLoad(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return disciplinaBC.load(id);
 	}
 
 }
