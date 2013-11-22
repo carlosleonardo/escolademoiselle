@@ -1,0 +1,86 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="/template/main.xhtml">
+
+	<ui:define name="body">
+		<h:form prependId="false">
+
+			<p:toolbar>
+				<p:toolbarGroup align="left">
+					<p:commandButton value="#{messages['button.save']}" action="#{professorEditMB.insert}"
+						rendered="#{!professorEditMB.updateMode}" ajax="false" />
+					<p:commandButton value="#{messages['button.save']}" action="#{professorEditMB.update}"
+						rendered="#{professorEditMB.updateMode}" ajax="false" />
+					<p:commandButton value="#{messages['button.delete']}" onclick="confirmation.show()"
+						rendered="#{professorEditMB.updateMode}" type="button" immediate="true" ajax="false" />
+					<p:confirmDialog message="#{messages['label.confirm.delete']}" showEffect="bounce" hideEffect="explode"
+						header="#{messages['label.dialog.delete']}" severity="alert" widgetVar="confirmation">
+						<h:commandButton value="#{messages['button.dialog.yes']}" action="#{professorEditMB.delete}" immediate="true"
+							ajax="false" />
+						<h:commandButton value="#{messages['button.dialog.no']}" onclick="confirmation.hide()" type="button" />
+					</p:confirmDialog>
+				</p:toolbarGroup>
+			</p:toolbar>
+
+			<br />
+
+			<p:fieldset legend="#{messages['professor.label']}" toggleable="true" toggleSpeed="500">
+				<h:panelGrid id="fields" columns="3">
+					
+					<h:outputLabel value="#{messages['professor.label.id']}: " for="id" styleClass="text-input" />
+					<h:outputText id="id" value="#{professorEditMB.bean.id}" />
+					<p:message for="id" />
+					
+					<h:outputLabel value="#{messages['professor.label.dataContratacao']}: " for="dataContratacao" styleClass="text-input" />
+					<p:calendar id="dataContratacao" value="#{professorEditMB.bean.dataContratacao}"
+					   pattern="#{messages['label.date.pattern']}" navigator="true" showButtonPanel="true"
+					   locale="#{currentLocale}" title="#{messages['professor.alt.dataContratacao']}" />
+					   <p:message for="dataContratacao" />
+								
+					<h:outputLabel value="#{messages['professor.label.disciplina']}: " for="disciplina" styleClass="text-input" />
+					<h:inputText id="disciplina" value="#{professorEditMB.bean.disciplina}"
+						title="#{messages['professor.alt.disciplina']}" />
+					<p:message for="disciplina" />
+					
+					<h:outputLabel value="#{messages['professor.label.cPF']}: " for="cPF" styleClass="text-input" />
+					<h:inputText id="cPF" value="#{professorEditMB.bean.cPF}"
+						title="#{messages['professor.alt.cPF']}" />
+					<p:message for="cPF" />
+					
+					<h:outputLabel value="#{messages['professor.label.identidade']}: " for="identidade" styleClass="text-input" />
+					<h:inputText id="identidade" value="#{professorEditMB.bean.identidade}"
+						title="#{messages['professor.alt.identidade']}" />
+					<p:message for="identidade" />
+					
+					<h:outputLabel value="#{messages['professor.label.nome']}: " for="nome" styleClass="text-input" />
+					<h:inputText id="nome" value="#{professorEditMB.bean.nome}"
+						title="#{messages['professor.alt.nome']}" />
+					<p:message for="nome" />
+					
+					<h:outputLabel value="#{messages['professor.label.dataNascimento']}: " for="dataNascimento" styleClass="text-input" />
+					<p:calendar id="dataNascimento" value="#{professorEditMB.bean.dataNascimento}"
+					   pattern="#{messages['label.date.pattern']}" navigator="true" showButtonPanel="true"
+					   locale="#{currentLocale}" title="#{messages['professor.alt.dataNascimento']}" />
+					   <p:message for="dataNascimento" />
+								
+					<h:outputLabel value="#{messages['professor.label.telefone']}: " for="telefone" styleClass="text-input" />
+					<h:inputText id="telefone" value="#{professorEditMB.bean.telefone}"
+						title="#{messages['professor.alt.telefone']}" />
+					<p:message for="telefone" />
+					
+					<h:outputLabel value="#{messages['professor.label.endereco']}: " for="endereco" styleClass="text-input" />
+					<h:inputText id="endereco" value="#{professorEditMB.bean.endereco}"
+						title="#{messages['professor.alt.endereco']}" />
+					<p:message for="endereco" />
+					
+					<h:outputLabel value="#{messages['professor.label.email']}: " for="email" styleClass="text-input" />
+					<h:inputText id="email" value="#{professorEditMB.bean.email}"
+						title="#{messages['professor.alt.email']}" />
+					<p:message for="email" />
+					
+				</h:panelGrid>
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition>
