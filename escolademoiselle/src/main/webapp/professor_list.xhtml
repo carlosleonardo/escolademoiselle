@@ -49,10 +49,10 @@
 					</h:commandLink>
 				</p:column>
 						
-				<p:column sortBy="#{bean.cPF}">
+				<p:column sortBy="#{bean.CPF}">
 					<f:facet name="header">#{messages['professor.label.cPF']}</f:facet>
 					<h:commandLink action="#{professorListMB.getNextView}" actionListener="#{professorListMB.clear}">
-						<h:outputText value="#{bean.cPF}" />
+						<h:outputText value="#{bean.CPF}" />
 						<f:param name="id" value="#{bean.id}" />
 					</h:commandLink>
 				</p:column>
