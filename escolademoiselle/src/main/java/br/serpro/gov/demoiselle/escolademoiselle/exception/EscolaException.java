@@ -13,21 +13,17 @@ public class EscolaException extends RuntimeException {
 	private MessageContext contextoMensagem;
 	
 	public EscolaException() {
-		//super();
 	}
 
 	public EscolaException(String message, Throwable cause) {
-		//super(message, cause);
 		contextoMensagem.add(message);
 	}
 
 	public EscolaException(String message) {
-		//super(message);
 		contextoMensagem.add(message);
 	}
 
 	public EscolaException(Throwable cause) {
-		//super(cause);
 		contextoMensagem.add(cause.getLocalizedMessage());
 	}
 
